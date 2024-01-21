@@ -37,7 +37,7 @@ app.get('/api/majors/:name', async (req, res) => {
         console.log(name);
         const major = await collection.findOne({ name: name });
         if (major) {
-            res.json(major.requirements);
+            res.json(major.prerequisites);
         } else {
             res.status(404).send('Major not found');
         }
