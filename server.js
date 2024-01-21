@@ -42,7 +42,8 @@ app.get('/api/majors/:name', async (req, res) => {
             res.status(404).send('Major not found');
         }
     } catch (error) {
-        res.status(500).send('Server error');
+        console.error("Error occurred:", error);
+        res.status(500).send('Server error: ' + error.message);
     } finally {
         await client.close();
     }
